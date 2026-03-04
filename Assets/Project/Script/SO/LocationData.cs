@@ -1,10 +1,11 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Location", menuName = "Game/Location")]
+[CreateAssetMenu(menuName = "Game/Location")]
 public class LocationData : ScriptableObject
 {
-    public string locationName;
-    [TextArea] public string description;
-    public List<LocationData> neighbors;  // drag in Inspector
+    [Header("Identity")]
+    public string id;           // unique key
+    public string displayName;  // name shown in UI
+    public List<LocationData> neighbors = new List<LocationData>();
 }

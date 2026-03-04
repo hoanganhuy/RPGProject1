@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6221558adc7529445908aad5b12722e3, type: 3}
-  m_Name: TheHungry
+  m_Name: BanditAttack
   m_EditorClassIdentifier: 
-  eventName: The Hungry
-  description: Main character feel too hungry
-  triggerLocation: {fileID: 11400000, guid: 0edf668acfc69fd4384757de3940bef8, type: 2}
-  probability: 0.5
+  id: bandit_attack
+  triggerLocationIDs:
+  - old_mill
+  requiredFlags:
+  - world_bandit_rumor
+  blockedFlags: []
+  oneTimeOnly: 1
+  description: Bandits ambush you on the road!
   choices:
-  - buttonText: Eat food in the basket
-    resultText: The amount of food is reduce
-    goodsDelta: -1
-    timeDelta: 0
-    flagsToSet:
-    - notHungry
+  - buttonText: Fight back
+    resultText: You survive the attack. The region becomes dangerous.
+    setFlags:
+    - world_bandits_active
+    clearFlags: []

@@ -1,24 +1,25 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Event", menuName = "Game/Event")]
+[CreateAssetMenu(menuName = "Game/Event")]
 public class EventData : ScriptableObject
 {
-    public string eventName;
-    [TextArea] public string description;
-    public LocationData triggerLocation;   // null = anywhere
-    [Range(0, 1)] public float probability = 0.5f;
+    [Header("Identity")]
+    public string id;
 
-    public List<EventChoice> choices;
-}
+    [Header("Trigger")]
+    public List<string> triggerLocationIDs = new List<string>();
 
-[System.Serializable]
-public class EventChoice
-{
-    public string buttonText;
-    [TextArea] public string resultText;
-    public int goodsDelta;           // how much bread changes
-    public int timeDelta;           // hours added
-    public List<string> flagsToSet;
-    // reputation changes, item gains, etc. – add later
+    [Header("Conditions")]
+    public List<string> requiredFlags = new List<string>();
+    public List<string> blockedFlags = new List<string>();
+
+    [Header("Rules")]
+    public bool oneTimeOnly = false;
+
+    [Header("Content")]
+    [TextArea(4, 8)]
+    public string description;
+
+    public List<EventChoiceData> choices = new List<EventChoiceData>();
 }

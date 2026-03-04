@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5883c605f17134e439164a8dbe51a8b7, type: 3}
-  m_Name: TheGarden
+  m_Name: Guild
   m_EditorClassIdentifier: 
-  locationName: The Garden
-  description: 
-  neighbors:
-  - {fileID: 11400000, guid: 0edf668acfc69fd4384757de3940bef8, type: 2}
+  id: guild
+  displayName: Guild
+  neighbors: []

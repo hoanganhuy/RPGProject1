@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5883c605f17134e439164a8dbe51a8b7, type: 3}
-  m_Name: OldMillPath
+  m_Name: Garden
   m_EditorClassIdentifier: 
-  locationName: Old Mill Path
-  description: 
-  neighbors:
-  - {fileID: 11400000, guid: ad0712ad13cb1f64b8952cddc9252c59, type: 2}
-  - {fileID: 11400000, guid: f293c1dc16428354d8c7bd0429a52fef, type: 2}
+  id: garden
+  displayName: Garden
+  neighbors: []
