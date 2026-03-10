@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuPanel : MonoBehaviour
 {
     public GameObject optionsPanel;
     public GameObject saveSlotsPanel;
@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    public void OnContinue()
+    public void OnLoadGame()
     {
         // Show save slots panel instead of loading directly
         saveSlotsPanel.SetActive(true);
