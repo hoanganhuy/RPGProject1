@@ -6,7 +6,7 @@ public class GuildSystem : MonoBehaviour
     public GameObject jobBoardPanel;
     public LocationSystem locationSystem;
     public GameManager gm;
-
+    public JobBoardSystem jobBoardSystem;
     private void Awake()
     {
         inGuildPanel.SetActive(false);
@@ -19,6 +19,8 @@ public class GuildSystem : MonoBehaviour
 
         inGuildPanel.SetActive(true);
         jobBoardPanel.SetActive(true);
+
+        jobBoardSystem.SpawnJobs();
 
         locationSystem.OpenAndCLoseMapLocation(false);
     }

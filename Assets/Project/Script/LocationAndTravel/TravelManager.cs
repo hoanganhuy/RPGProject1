@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TravelManager
 {
@@ -12,6 +12,7 @@ public class TravelManager
 
     WorldMapGraph graph;
 
+    bool isPausedByEvent;
     public TravelManager(WorldMapGraph graph, LocationData start)
     {
         this.graph = graph;
@@ -40,12 +41,29 @@ public class TravelManager
 
     public bool StepTravel()
     {
-        if (!isTravelling) return false;
+        if (!isTravelling || isPausedByEvent)
+            return false;
 
         currentStep++;
 
         Debug.Log("Step " + currentStep + "/" + totalStep);
 
+        // ===== EVENT =====
+        var e = EventRuntimeSystem.Instance.TryGetTravelEvent();
+
+        if (e != null)
+        {
+            Debug.Log("Travel Event Triggered: " + e.id);
+
+            isPausedByEvent = true; // 🔥 PAUSE
+
+            GameManager.Instance.ChangeMode(GameMode.InEvent);
+            GameManager.Instance.dialogueSystem.StartEventDialogue(e);
+
+            return false;
+        }
+
+        // ===== ARRIVAL =====
         if (currentStep >= totalStep)
         {
             currentLocation = targetLocation;
@@ -57,7 +75,10 @@ public class TravelManager
 
         return false;
     }
-
+    public void ResumeTravel()
+    {
+        isPausedByEvent = false;
+    }
     public LocationData GetCurrentLocation()
     {
         return currentLocation;
@@ -77,7 +98,10 @@ public class TravelManager
     {
         return targetLocation;
     }
-
+    public bool IsPaused()
+    {
+        return isPausedByEvent;
+    }
     public bool IsTravelling()
     {
         return isTravelling;

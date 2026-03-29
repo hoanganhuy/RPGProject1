@@ -1,12 +1,20 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Game/Event Choice")]
+[CreateAssetMenu(menuName = "Game/EventChoice v2")]
 public class EventChoiceSO : ScriptableObject
 {
     [TextArea(2, 6)]
-    public string text;
+    public string description;
 
-    public EventOutcome outcome;
+    [Header("Resource")]
+    public int coinDelta;
+    public int reputationDelta;
+    public float timeDelta;
 
-    public EventSO nextEvent;
+    [Header("Flags")]
+    public string[] flagsSet;
+    public string[] flagsCleared;
+
+    [Header("Quest Progression (Story only)")]
+    public bool advanceStep; // dùng nếu muốn explicit
 }

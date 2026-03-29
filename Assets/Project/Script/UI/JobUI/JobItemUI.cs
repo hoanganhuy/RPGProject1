@@ -1,14 +1,12 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class JobItemUI : MonoBehaviour
 {
     public TextMeshProUGUI title;
-    public TextMeshProUGUI giver;
-    public TextMeshProUGUI from;
-    public TextMeshProUGUI to;
     public TextMeshProUGUI desc;
+    public TextMeshProUGUI stepInfo;
 
     public Button acceptButton;
 
@@ -21,16 +19,19 @@ public class JobItemUI : MonoBehaviour
         board = b;
 
         title.text = q.title;
-        giver.text = "Giver: " + q.giverNPC;
-        from.text = "From: " + q.receiveLocation.displayName;
-        to.text = "To: " + q.steps[q.steps.Length - 1].location.displayName;
         desc.text = q.description;
 
+        stepInfo.text = $"Progress: {q.startStep} → {q.endStep}";
+
+        acceptButton.onClick.RemoveAllListeners();
         acceptButton.onClick.AddListener(OnAccept);
     }
 
     void OnAccept()
     {
+        if (QuestRuntimeSystem.Instance.HasActiveQuest())
+            return;
+
         board.AcceptQuest(quest);
     }
 }

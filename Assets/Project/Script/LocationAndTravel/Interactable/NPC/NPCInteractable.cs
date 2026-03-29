@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPCInteractable : LocationInteractableBase
 {
@@ -6,6 +6,20 @@ public class NPCInteractable : LocationInteractableBase
 
     public override void Interact(GameManager gm)
     {
-        gm.dialogueSystem.StartDialogue(npcID);
+        if (gm.currentMode != GameMode.Exploration)
+            return;
+
+        var e = EventRuntimeSystem.Instance
+                    .TryGetInteractEvent(npcID);
+
+        if (e != null)
+        {
+            gm.dialogueSystem.StartEventDialogue(e);
+        }
+        else
+        {
+            // fallback đơn giản (narration)
+            Debug.Log("No event triggered for NPC: " + npcID);
+        }
     }
 }

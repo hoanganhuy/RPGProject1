@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,12 +56,30 @@ public class WorldMapController : MonoBehaviour
 
         for (int i = 1; i <= steps; i++)
         {
+            //  nếu đang pause  chờ
+            if (travelManager.IsPaused())
+            {
+                yield return null;
+                i--; // ❗ giữ nguyên step
+                continue;
+            }
+
+            //  STEP LOGIC TRƯỚC
+            bool arrived = travelManager.StepTravel();
+
+            //  nếu event xảy ra  pause ngay
+            if (travelManager.IsPaused())
+            {
+                yield return null;
+                i--; // ❗ không mất step
+                continue;
+            }
+
+            // ===== MOVE UI SAU =====
             float t = (float)i / steps;
             Vector3 stepPos = Vector3.Lerp(startPos, endPos, t);
 
             yield return MovePlayer(stepPos);
-
-            bool arrived = travelManager.StepTravel();
 
             if (arrived)
             {
@@ -69,6 +87,7 @@ public class WorldMapController : MonoBehaviour
                 ClearDots();
                 CloseMap();
                 onTravelFinished?.Invoke();
+                yield break;
             }
         }
     }

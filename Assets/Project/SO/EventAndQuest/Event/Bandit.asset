@@ -10,17 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
-  m_Name: BanditToll
+  m_Name: Bandit
   m_EditorClassIdentifier: 
-  id: bandit_toll
-  title: Bandit Toll
-  description: A group of bandits blocks your path and demands coin.
-  triggerType: 0
-  location: {fileID: 11400000, guid: 8c5e5c8e98e8eaf4db072d0bff886bfd, type: 2}
-  npcID: 
-  rarity: 2
-  stepSegmentRange: {x: 2, y: 4}
+  id: test_event_Travel
+  triggerType: 1
+  layer: 1
+  targetId: Bandit
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags:
+  - has_packed
+  forbiddenFlags:
+  - paid_protection
+  triggerChance: 1
+  priority: 0
   repeatable: 1
-  conditions: []
+  dialogues:
+  - text: Nop bao ke
+    npcId: Bandit
   choices:
-  - {fileID: 11400000, guid: a58deff5ee8642943a5bf19f974de03f, type: 2}
+  - {fileID: 11400000, guid: 68c107ef9998d6f4b8ec90d2e7014181, type: 2}

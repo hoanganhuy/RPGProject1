@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public GuildSystem guildSystem;
     public DialogueSystem dialogueSystem;
 
-    TravelManager travelManager;
+    public TravelManager travelManager;
     LocationData currentLocation;
     private void Awake()
     {

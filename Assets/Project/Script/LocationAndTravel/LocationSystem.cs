@@ -5,7 +5,7 @@ public class LocationSystem : MonoBehaviour
 {
     public Transform locationMapHolder;
     public Image backgroundImage;
-    public UIDataController uiData;
+    public UIDataSystem uiData;
 
     GameObject currentLocationMapObj;
     LocationData currentLocation;

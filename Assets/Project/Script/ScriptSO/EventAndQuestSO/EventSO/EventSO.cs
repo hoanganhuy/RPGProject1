@@ -1,40 +1,57 @@
-using UnityEngine;
-public enum EventRarity
-{
-    Story,
-    Quest,
-    Common,
-    Rare
-}
+﻿using UnityEngine;
 public enum EventTriggerType
 {
-    TravelStep,
-    LocationArrival,
-    NPCInteract
+    OnInteract,
+    OnTravelStep,
+    OnLocationEnter,
+    OnTimePass
 }
-[CreateAssetMenu(menuName = "Game/Event")]
 
+public enum EventLayer
+{
+    Story,        // thuộc quest → điều khiển step
+    Contextual,   // phụ thuộc context (flag, trạng thái)
+    Generic       // random flavor
+}
+
+[System.Serializable]
+public class DialogueLine
+{
+    public string text;
+    public string npcId; // null = narrator
+}
+
+[CreateAssetMenu(menuName = "Game/Event v2")]
 public class EventSO : ScriptableObject
 {
+    [Header("Identity")]
     public string id;
 
-    public string title;
-
-    [TextArea(5, 12)]
-    public string description;
-
+    [Header("Classification")]
     public EventTriggerType triggerType;
+    public EventLayer layer;
 
-    public LocationData location;
-    public string npcID;
+    [Header("Target")]
+    public string targetId; // dùng cho OnInteract / OnLocationEnter
 
-    public EventRarity rarity;
+    [Header("Step Condition (Story only)")]
+    public int requiredStep = -1;  // -1 = không dùng
+    public int nextStep = -1;      // -1 = không đổi step
 
-    public Vector2Int stepSegmentRange;
+    [Header("Conditions")]
+    public string[] requiredFlags;
+    public string[] forbiddenFlags;
 
-    public bool repeatable;
+    [Header("Random")]
+    [Range(0, 1)]
+    public float triggerChance = 1f;
 
-    public EventCondition[] conditions;
+    public int priority = 0;
+    public bool repeatable = true;
 
+    [Header("Dialogue")]
+    public DialogueLine[] dialogues;
+
+    [Header("Choices")]
     public EventChoiceSO[] choices;
 }

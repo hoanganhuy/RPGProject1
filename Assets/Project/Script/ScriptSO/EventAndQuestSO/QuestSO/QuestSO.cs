@@ -1,31 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
-public enum QuestType
-{
-    Delivery,
-    Collection,
-    Transfer,
-    Service,
-    Special
-}
-[CreateAssetMenu(menuName = "Game/Quest")]
+
+[CreateAssetMenu(menuName = "Game/Quest v2")]
 public class QuestSO : ScriptableObject
 {
+    [Header("Identity")]
     public string id;
-
     public string title;
-
-    [TextArea(4, 10)]
+    [TextArea(3, 8)]
     public string description;
 
-    public QuestType type;
+    [Header("Step")]
+    public int startStep = 0;
+    public int endStep = 3;
 
-    public string giverNPC;
-    public LocationData receiveLocation;
+    [Header("Events")]
+    public List<EventSO> events;
 
-    public QuestStep[] steps;
+    [Header("Reward")]
+    public int coinReward;
+    public int reputationReward;
 
-    public int rewardCoin;
-    public int rewardRep;
-
+    [Header("Rules")]
     public bool repeatable;
+    public int durationHours;
+
+    [Header("Conditions")]
+    public string[] requiredFlags;
+    public string[] forbiddenFlags;
 }
