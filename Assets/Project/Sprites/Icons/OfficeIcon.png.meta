@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b3667e5cb41eb374c870e9d161ee3621
+guid: bd69e3bbb930c564e9ad4efcebf23b36
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6060907181205269777
-    second: Mill_0
+      213: -4830741676899690604
+    second: OfficeIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mill_0
+      name: OfficeIcon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 240
-        height: 135
+        width: 140
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe255afd70553eba0800000000000000
-      internalID: -6060907181205269777
+      spriteID: 49718ba0a02c5fcb0800000000000000
+      internalID: -4830741676899690604
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mill_0: -6060907181205269777
+      OfficeIcon_0: -4830741676899690604
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
