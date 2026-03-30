@@ -13,9 +13,27 @@ MonoBehaviour:
   m_Name: WorldMap_Main
   m_EditorClassIdentifier: 
   connections:
-  - A: {fileID: 11400000, guid: a98837e14d96c5046b86ffaca64e7d16, type: 2}
-    B: {fileID: 11400000, guid: 8c5e5c8e98e8eaf4db072d0bff886bfd, type: 2}
+  - A: {fileID: 11400000, guid: d8f2bfcb6e1ae58419aa3ee51b416550, type: 2}
+    B: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
     stepCount: 3
-  - A: {fileID: 11400000, guid: 8c5e5c8e98e8eaf4db072d0bff886bfd, type: 2}
+  - A: {fileID: 11400000, guid: cefeaf40243c63f41942d804bfa4a2eb, type: 2}
+    B: {fileID: 11400000, guid: d8f2bfcb6e1ae58419aa3ee51b416550, type: 2}
+    stepCount: 4
+  - A: {fileID: 11400000, guid: cefeaf40243c63f41942d804bfa4a2eb, type: 2}
+    B: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
+    stepCount: 4
+  - A: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
+    B: {fileID: 11400000, guid: e5f11060828026942ad6db5b27add07b, type: 2}
+    stepCount: 20
+  - A: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
+    B: {fileID: 11400000, guid: 2db54d024b257f74da4c00555038eb0e, type: 2}
+    stepCount: 16
+  - A: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
+    B: {fileID: 11400000, guid: bd988734578b3b9428c9648a732c4daf, type: 2}
+    stepCount: 12
+  - A: {fileID: 11400000, guid: bd988734578b3b9428c9648a732c4daf, type: 2}
     B: {fileID: 11400000, guid: d5bb534f1a382594cba351fcb29635c6, type: 2}
-    stepCount: 5
+    stepCount: 3
+  - A: {fileID: 11400000, guid: d8f2bfcb6e1ae58419aa3ee51b416550, type: 2}
+    B: {fileID: 11400000, guid: dd058390efb9582499c14c6bdfc192b7, type: 2}
+    stepCount: 30

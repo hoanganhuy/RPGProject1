@@ -14,7 +14,7 @@ public class LocationSystem : MonoBehaviour
     {
         currentLocation = loc;
 
-        backgroundImage.sprite = loc.locationBackground;
+        //backgroundImage.sprite = loc.locationBackground;
         uiData.UpdateLocation(loc.displayName);
 
         if (currentLocationMapObj != null)

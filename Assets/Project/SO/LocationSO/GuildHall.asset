@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8789b9a6ed9be429e6be11fff418d3, type: 3}
+  m_Name: GuildHall
+  m_EditorClassIdentifier: 
+  id: guild_hall
+  displayName: Guild Hall
+  locationBackground: {fileID: 21300000, guid: 9dd064d486350a3419210fb8fa5bc0cf, type: 3}
+  mapIcon: {fileID: 21300000, guid: 19f016d406a9961409c76948de630fd8, type: 3}
+  locationMapPrefab: {fileID: 4977675242199400634, guid: 174cdfe7f4b79044ca9f601c6338d835, type: 3}

@@ -19,6 +19,7 @@ public class NPCInteractable : LocationInteractableBase
         else
         {
             // fallback đơn giản (narration)
+            
             Debug.Log("No event triggered for NPC: " + npcID);
         }
     }

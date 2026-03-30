@@ -95,12 +95,14 @@ public class DialogueSystem : MonoBehaviour
     {
         ExecuteChoice(c);
 
+        UIDataSystem.Instance.Refresh();
+
         currentEvent = null;
         dialogPanel.SetActive(false);
         ClearChoices();
         var gm = GameManager.Instance;
 
-        // 🔥 nếu đang travel → resume
+        //  nếu đang travel → resume
         if (gm.travelManager != null && gm.travelManager.IsTravelling())
         {
             gm.travelManager.ResumeTravel();
@@ -130,10 +132,12 @@ public class DialogueSystem : MonoBehaviour
                 FlagSystem.Instance.ClearFlag(f);
         }
 
-        // 🔥 STEP BASED
+        // STEP BASED
         if (c.advanceStep)
         {
             QuestRuntimeSystem.Instance.AdvanceStep();
         }
     }
+
+    
 }

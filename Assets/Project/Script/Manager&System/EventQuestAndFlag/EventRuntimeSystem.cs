@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class EventRuntimeSystem : MonoBehaviour
 {
@@ -17,16 +18,14 @@ public class EventRuntimeSystem : MonoBehaviour
         // ===== 1. STORY EVENT =====
         if (quest != null)
         {
-            Debug.Log("khong get duoc activequest");
+            List<EventSO> candidates = new List<EventSO>();
+
             foreach (var e in quest.data.events)
             {
                 if (e.layer != EventLayer.Story)
                     continue;
 
                 if (e.triggerType != EventTriggerType.OnInteract)
-                    continue;
-
-                if (e.targetId != targetId)
                     continue;
 
                 if (e.requiredStep != -1 &&
@@ -36,7 +35,13 @@ public class EventRuntimeSystem : MonoBehaviour
                 if (!CheckCondition(e))
                     continue;
 
-                return e;
+                candidates.Add(e);
+            }
+
+            //  chọn random
+            if (candidates.Count > 0)
+            {
+                return candidates[Random.Range(0, candidates.Count)];
             }
         }
 

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8789b9a6ed9be429e6be11fff418d3, type: 3}
+  m_Name: GuardPost
+  m_EditorClassIdentifier: 
+  id: guard_post
+  displayName: Northguard Post
+  locationBackground: {fileID: 9085546173938197295, guid: 1b8858992d059a243b364466be989199, type: 3}
+  mapIcon: {fileID: 21300000, guid: 5ab7e827f71f98642841e2fa94874982, type: 3}
+  locationMapPrefab: {fileID: 4977675242199400634, guid: d9607283ce76e9f4796cce91e44f8919, type: 3}

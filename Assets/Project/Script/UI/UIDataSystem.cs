@@ -42,7 +42,7 @@ public class UIDataSystem : MonoBehaviour
         {
             questNameText.text = quest.data.title;
 
-            // 🔥 HIỂN THỊ STEP
+            // HIỂN THỊ STEP
             questTargetText.text =
                 $"Step {quest.currentStep} / {quest.data.endStep}";
         }

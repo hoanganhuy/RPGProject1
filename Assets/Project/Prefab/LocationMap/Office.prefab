@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c458555826bc09c4bb7c298489ba44b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: Grandpa
+  npcID: old_man
 --- !u!1 &6795979885773326979
 GameObject:
   m_ObjectHideFlags: 0
