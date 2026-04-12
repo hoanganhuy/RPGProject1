@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29477859468fe8b40a4f66732138105f, type: 3}
+  m_Name: HeirQuest
+  m_EditorClassIdentifier: 
+  id: Q.STORY_TIN_BOX_MYSTERY
+  title: Vex Gift
+  description: Meet me at the office. I have something for you.
+  startStep: 0
+  endStep: 6
+  events:
+  - {fileID: 11400000, guid: fceffaaed73fed2439e735f42d3a8f7b, type: 2}
+  - {fileID: 11400000, guid: 7d3179354562c254e80cb35f07e6528e, type: 2}
+  - {fileID: 11400000, guid: d41bd8cd350891b40995002aa70d6397, type: 2}
+  - {fileID: 11400000, guid: d09f458312e5f4841957d0b6c6db425f, type: 2}
+  - {fileID: 11400000, guid: a39c21e8cc098be449aed58b4c8b99ce, type: 2}
+  - {fileID: 11400000, guid: bbc80eaa4edd16442a60a27b704908b1, type: 2}
+  coinReward: 0
+  reputationReward: 0
+  repeatable: 0
+  durationHours: 6
+  requiredFlags: []
+  forbiddenFlags: []

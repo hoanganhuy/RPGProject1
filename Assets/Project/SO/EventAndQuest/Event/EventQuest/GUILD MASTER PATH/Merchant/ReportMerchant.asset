@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: ReportMerchant
+  m_EditorClassIdentifier: 
+  id: EV_Q3_VOTE_MERCHANT_END
+  triggerType: 0
+  layer: 0
+  targetId: vex
+  requiredStep: 0
+  nextStep: 1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: You freaking guild, bastard!
+    npcId: iron
+  - text: Promise to me, you will purge those scum once you got the master chair.
+    npcId: iron
+  - text: I will support you as much as i can.
+    npcId: iron
+  choices:
+  - {fileID: 11400000, guid: b1ffe7dbe9f73844082e948b51f237dd, type: 2}

@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e09b3f7e1e326468917a16108c68aa, type: 3}
   m_Name: Pick
   m_EditorClassIdentifier: 
-  description: Pick goods food
+  description: Carrying the food
   coinDelta: 0
   reputationDelta: 0
-  timeDelta: 2
+  timeDelta: 0
   flagsSet:
   - has_goods
-  - goods_food
-  - delivery_risk_low
+  - has_food
   flagsCleared: []
   advanceStep: 1

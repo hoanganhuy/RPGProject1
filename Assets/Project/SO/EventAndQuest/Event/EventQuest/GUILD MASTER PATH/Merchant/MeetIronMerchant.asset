@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: MeetIronMerchant
+  m_EditorClassIdentifier: 
+  id: EV_Q3_VOTE_MERCHANT
+  triggerType: 0
+  layer: 0
+  targetId: vex
+  requiredStep: 0
+  nextStep: 1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: We paid the guild to protect the goods, but even when i see some goods
+      disappear and ask them and our caravan. They both say nothing happen on the
+      way.
+    npcId: iron
+  - text: When i am with the caravan, nothing happen on the way also. But some goods
+      still dissapear?
+    npcId: iron
+  - text: Investigate and solve this problem for me.
+    npcId: iron
+  choices:
+  - {fileID: 11400000, guid: 69db4d16ce1d2e644a07d7976d0e7c62, type: 2}
+  - {fileID: 11400000, guid: 0420fd379ca425f41a6d8720606fb72f, type: 2}

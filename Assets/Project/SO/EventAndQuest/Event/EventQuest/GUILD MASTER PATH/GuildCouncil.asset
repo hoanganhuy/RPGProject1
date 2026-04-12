@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: GuildCouncil
+  m_EditorClassIdentifier: 
+  id: EV_Q3_COUNCILMEETING
+  triggerType: 2
+  layer: 0
+  targetId: vex
+  requiredStep: 0
+  nextStep: 1
+  requiredFlags:
+  - high_reputation
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: welcome you to the council meeting
+    npcId: voices
+  - text: we are people who having voting right for the guild master seat.
+    npcId: voices
+  - text: 'The big 3: Admin Vex, Sergent Ilda, and Guard''s head Blackwood.'
+    npcId: voices
+  - text: Each of them will have two votes count. While the rest of us each one have
+      just one votes. So it will be 9 single votes
+    npcId: voices
+  - text: 12 eyes look at the young wayfarer. Most of them hostile to you.
+    npcId: 
+  - text: The guild have 15 votes, and combine with 13 votes from the village, it
+      will be 28 votes all.
+    npcId: voices
+  - text: You will compete with Sir Blackwood and Master Braw, The Treasure Watcher.
+    npcId: voices
+  - text: Your audience end here. the voting days will be 15 more days.
+    npcId: voices
+  choices:
+  - {fileID: 11400000, guid: 69db4d16ce1d2e644a07d7976d0e7c62, type: 2}
+  - {fileID: 11400000, guid: 0420fd379ca425f41a6d8720606fb72f, type: 2}

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: AskTarrenLocket
+  m_EditorClassIdentifier: 
+  id: EV_Q.HEIRPATH_DOCK
+  triggerType: 0
+  layer: 0
+  targetId: tarren
+  requiredStep: 2
+  nextStep: 3
+  requiredFlags:
+  - heir_path_active
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: Good day lad. What can i help you?
+    npcId: tarren
+  - text: Hey! Is that my locket?
+    npcId: tarren
+  - text: Oh, so those are the same huh? That mean you have relation with that women.
+    npcId: tarren
+  - text: And that locket, i remember Tarren the dock owner having the same thing.
+    npcId: thomas_mith
+  - text: Hmm, you are telling me that you got found with that locket? are you her
+      child or what?
+    npcId: tarren
+  - text: Then you should find the hermit, because i was rush to bring her to him
+      then go home. Next morning i come back, the hermit say she's dead and gave
+      me the locket of her. Tell me to keep it. Stange right?
+    npcId: tarren
+  choices:
+  - {fileID: 11400000, guid: 7e152be04b9b8de4cbccd32c6b1d3776, type: 2}

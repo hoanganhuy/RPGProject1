@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: MeetSmith
+  m_EditorClassIdentifier: 
+  id: EV_Q3_ACCEPT
+  triggerType: 0
+  layer: 0
+  targetId: vex
+  requiredStep: 0
+  nextStep: 1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: I will step down soon. The guild will hold an election.
+    npcId: vex
+  - text: I want your name on that ballot. You earned it, and also the most trustworthy
+      person i know.
+    npcId: vex
+  - text: No one is ready. Deserve has nothing to do with it. Lead differently
+    npcId: vex
+  choices:
+  - {fileID: 11400000, guid: 69db4d16ce1d2e644a07d7976d0e7c62, type: 2}
+  - {fileID: 11400000, guid: 0420fd379ca425f41a6d8720606fb72f, type: 2}

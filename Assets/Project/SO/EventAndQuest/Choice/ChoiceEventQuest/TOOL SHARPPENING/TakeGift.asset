@@ -17,9 +17,10 @@ MonoBehaviour:
   reputationDelta: 0
   timeDelta: 0
   flagsSet:
-  - quest_sherpen_tool_done
+  - quest_sherpen_swords_done
   flagsCleared:
   - has_goods
-  - goods_tools
-  - quest_tool_active
+  - has_sharp_swords
+  - has_swords
+  - quest_sharpening_active
   advanceStep: 1

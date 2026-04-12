@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: ReportBacktoSara
+  m_EditorClassIdentifier: 
+  id: EV_Q3_VOTE_PRIEST_RETURN
+  triggerType: 0
+  layer: 0
+  targetId: sara
+  requiredStep: 0
+  nextStep: 1
+  requiredFlags:
+  - internal_vote_secured
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: This year is struggling so the Orphant fund got so little of money
+    npcId: sara
+  - text: I cannot convince people donate more so i have to turn to the wealthiest
+      of us all, the guild. Not to mention that pig Vance never do anything for the
+      village.
+    npcId: sara
+  - text: Well, i think the Temple and those kids will have worse meal for few more
+      months.
+    npcId: sara
+  - text: You will have my vote if you promise to donate to the guild that amount
+      of money after the election.
+    npcId: sara
+  choices:
+  - {fileID: 11400000, guid: 431ece45d892fc7468ae43b4f67845db, type: 2}
+  - {fileID: 11400000, guid: 6451faada3ba77e4884c1cbee8de2c3b, type: 2}

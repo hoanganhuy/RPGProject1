@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: MeettheHermit
+  m_EditorClassIdentifier: 
+  id: EV_Q3_VOTE_HERMIT_MEET
+  triggerType: 0
+  layer: 0
+  targetId: straw
+  requiredStep: 0
+  nextStep: 1
+  requiredFlags:
+  - internal_vote_secured
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: I need that rare herb only survive on colder weather
+    npcId: hermit
+  - text: "It's called Ametha, 5 pedals purple flower with orange p\xEDtil"
+    npcId: hermit
+  - text: Well actually i was asking Helio a favor of take care of them for me so
+      you should see it quite much around the post.
+    npcId: hermit
+  - text: So go to Northguard post and get them.
+    npcId: hermit
+  choices:
+  - {fileID: 11400000, guid: ac78923ae13eee849a9ee3b01e94bbb1, type: 2}

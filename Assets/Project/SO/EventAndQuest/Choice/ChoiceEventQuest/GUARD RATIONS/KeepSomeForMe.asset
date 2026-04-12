@@ -16,9 +16,9 @@ MonoBehaviour:
   coinDelta: 10
   reputationDelta: -4
   timeDelta: 0
-  flagsSet: []
+  flagsSet:
+  - quest_ration_done
   flagsCleared:
   - has_goods
-  - delivery_risk_low
-  - goods_food
+  - quest_ration_active
   advanceStep: 1
