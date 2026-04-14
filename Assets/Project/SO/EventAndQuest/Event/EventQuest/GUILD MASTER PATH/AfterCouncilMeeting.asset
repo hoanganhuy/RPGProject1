@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: AfterCouncilMeeting
+  m_EditorClassIdentifier: 
+  id: EV_Q3_AFTER_COUNCILMEETING
+  triggerType: 1
+  layer: 0
+  targetId: vex
+  requiredStep: 0
+  nextStep: 1
+  requiredFlags:
+  - 
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: Hold on there for a second.
+    npcId: Halen
+  - text: I just want you to know that i will have my confirm on voting to you.
+    npcId: Halen
+  - text: Also Mr.Vex tell me he was convince Sergent Ilda successfully.
+    npcId: Halen
+  - text: However, all others voters will vote for Sir Blackwood because of his wings.
+    npcId: Halen
+  - text: However, all others voters will vote for Sir Blackwood because of his wings.
+    npcId: Halen
+  - text: So your work right now are going to convince people in the village to vote
+      to you, at least 10, because if there is a tie, the guild electing will be
+      choosed.
+    npcId: Halen
+  - text: Just do as you work, meeting people through quest and have their trust.
+    npcId: Halen
+  - text: Those people have voting right will be highlight in the quest, and those
+      will be put on tomorrow.
+    npcId: Halen
+  choices:
+  - {fileID: 11400000, guid: 0b0fac8c55dd63642b4618c782727dab, type: 2}

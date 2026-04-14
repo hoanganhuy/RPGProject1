@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: AskSera
+  m_EditorClassIdentifier: 
+  id: EV_Q.HEIRPATH_TEMPLE
+  triggerType: 0
+  layer: 0
+  targetId: sera
+  requiredStep: 4
+  nextStep: 5
+  requiredFlags:
+  - heir_path_active
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: May Lord protect you. What can i help you sir?
+    npcId: sera
+  - text: You ask sera about your mother.
+    npcId: 
+  - text: '*Sera hug you tight* So you do know about that night.'
+    npcId: sera
+  - text: Oh lord Arden, your name is Kaelen. That name is what your mother gave
+      you.
+    npcId: sera
+  - text: That night, when your mother bring you to me, she got blood on her hand.
+      Tell me your name and then disappear right after that.
+    npcId: sera
+  - text: I then rush to the guard and urge them to get to the estage. But then got
+      a dangerous stare from the Guard Captain.
+    npcId: sera
+  - text: Even then he tell his men to get to there, i sense that keep you with me
+      is too dangerous, then i bring the signet and letter of keep you in secret
+      inside the tinbox, then put you infront of Vex office. I know him is the right
+      person.
+    npcId: sera
+  - text: The next morning, I heard that all the Arden family was killed.
+    npcId: sera
+  - text: That all I know my dear.
+    npcId: sera
+  choices:
+  - {fileID: 11400000, guid: 9a79843ddf7ec494589482cd0b6ca7a8, type: 2}

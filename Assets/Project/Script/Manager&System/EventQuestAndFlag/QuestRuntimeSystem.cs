@@ -26,7 +26,7 @@ public class QuestRuntimeSystem : MonoBehaviour
         }
 
         activeQuest = new QuestRuntime(quest, currentHour);
-
+        FlagSystem.Instance.SetFlag("quest_active_" + quest.id);
         Debug.Log("Accepted quest: " + quest.title);
     }
 
@@ -74,5 +74,18 @@ public class QuestRuntimeSystem : MonoBehaviour
         activeQuest = null;
 
         UIDataSystem.Instance.Refresh();
+    }
+
+    //========SAVE LOAD ===========
+    public void LoadQuest(QuestSO quest, int step, int startHour)
+    {
+        activeQuest = new QuestRuntime(quest, startHour);
+        activeQuest.currentStep = step;
+
+        Debug.Log("Loaded quest: " + quest.title + " | Step: " + step);
+    }
+    public void ClearQuest()
+    {
+        activeQuest = null;
     }
 }

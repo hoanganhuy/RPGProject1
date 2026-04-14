@@ -5,11 +5,18 @@ public class EventRuntimeSystem : MonoBehaviour
 {
     public static EventRuntimeSystem Instance;
 
-    public EventSO[] worldEvents;
+    public EventSO[] eventGeneric;
+    public List<EventSO> runTimeEventGeneric;
+    public EventSO[] eventContxtual;
+    public List<EventSO> runTimeEventContxtual;
+    public EventSO newDayEvent;
 
     void Awake()
     {
         Instance = this;
+
+        runTimeEventGeneric = new List<EventSO>(eventGeneric);
+        runTimeEventContxtual = new List<EventSO>(eventContxtual);
     }
     public EventSO TryGetInteractEvent(string targetId)
     {
@@ -23,6 +30,9 @@ public class EventRuntimeSystem : MonoBehaviour
             foreach (var e in quest.data.events)
             {
                 if (e.layer != EventLayer.Story)
+                    continue;
+
+                if (e.targetId != targetId)
                     continue;
 
                 if (e.triggerType != EventTriggerType.OnInteract)
@@ -45,16 +55,93 @@ public class EventRuntimeSystem : MonoBehaviour
             }
         }
 
-        // ===== 2. CONTEXTUAL =====
-        foreach (var e in worldEvents)
+        //// ===== 2. CONTEXTUAL =====
+        //foreach (var e in eventContxtual)
+        //{
+        //    if (e.layer != EventLayer.Contextual)
+        //        continue;
+
+        //    if (e.triggerType != EventTriggerType.OnInteract)
+        //        continue;
+
+        //    if (e.targetId != targetId)
+        //        continue;
+
+        //    if (!CheckCondition(e))
+        //        continue;
+
+        //    if (Random.value <= e.triggerChance)
+        //        return e;
+        //}
+
+        //// ===== 3. GENERIC =====
+        //foreach (var e in eventGeneric)
+        //{
+        //    if (e.layer != EventLayer.Generic)
+        //        continue;
+
+        //    if (e.triggerType != EventTriggerType.OnInteract)
+        //        continue;
+
+        //    if (!CheckCondition(e))
+        //        continue;
+
+        //    if (Random.value <= e.triggerChance)
+        //        return e;
+        //}
+
+        return null;
+    }
+    public EventSO TryGetEventLocation()
+    {
+        //===== 1. EventLocation ======
+        foreach (var e in runTimeEventContxtual)
         {
             if (e.layer != EventLayer.Contextual)
                 continue;
 
-            if (e.triggerType != EventTriggerType.OnInteract)
+            if (e.triggerType != EventTriggerType.OnLocationEnter)
                 continue;
 
-            if (e.targetId != targetId)
+            if (!CheckCondition(e))
+                continue;
+
+            if (Random.value <= e.triggerChance)
+                return e;
+        }
+        // ===== 2. GENERIC =====
+        foreach (var e in runTimeEventGeneric)
+        {
+            if (e.layer != EventLayer.Generic)
+                continue;
+
+            if (e.triggerType != EventTriggerType.OnLocationEnter)
+                continue;
+
+            if (!CheckCondition(e))
+                continue;
+
+            if (Random.value <= e.triggerChance)
+            {
+                if (!e.repeatable)
+                {
+                    runTimeEventGeneric.Remove(e);
+                }
+                return e;
+            }
+        }
+        return null;
+    }
+    public EventSO TryGetTravelEvent(float multiplier)
+    {
+        
+        // ===== 2. CONTEXTUAL =====
+        foreach (var e in runTimeEventContxtual)
+        {
+            if (e.layer != EventLayer.Contextual)
+                continue;
+
+            if (e.triggerType != EventTriggerType.OnTravelStep)
                 continue;
 
             if (!CheckCondition(e))
@@ -65,83 +152,56 @@ public class EventRuntimeSystem : MonoBehaviour
         }
 
         // ===== 3. GENERIC =====
-        foreach (var e in worldEvents)
+        foreach (var e in runTimeEventGeneric)
         {
             if (e.layer != EventLayer.Generic)
                 continue;
 
-            if (e.triggerType != EventTriggerType.OnInteract)
+            if (e.triggerType != EventTriggerType.OnTravelStep)
                 continue;
 
             if (!CheckCondition(e))
                 continue;
 
-            if (Random.value <= e.triggerChance)
-                return e;
-        }
+            float finalChance = e.triggerChance * multiplier;
 
-        return null;
-    }
-    public EventSO TryGetTravelEvent()
-    {
-        var quest = QuestRuntimeSystem.Instance.GetActiveQuest();
-
-        // ===== 1. STORY EVENT =====
-        if (quest != null)
-        {
-            foreach (var e in quest.data.events)
+            if (Random.value <= finalChance)
             {
-                if (e.layer != EventLayer.Story)
-                    continue;
-
-                if (e.triggerType != EventTriggerType.OnTravelStep)
-                    continue;
-
-                if (e.requiredStep != -1 &&
-                    e.requiredStep != quest.currentStep)
-                    continue;
-
-                if (!CheckCondition(e))
-                    continue;
+                if (!e.repeatable)
+                    runTimeEventGeneric.Remove(e);
 
                 return e;
             }
         }
 
-        // ===== 2. CONTEXTUAL =====
-        foreach (var e in worldEvents)
-        {
-            if (e.layer != EventLayer.Contextual)
-                continue;
-
-            if (e.triggerType != EventTriggerType.OnTravelStep)
-                continue;
-
-            if (!CheckCondition(e))
-                continue;
-
-            if (Random.value <= e.triggerChance)
-                return e;
-        }
-
-        // ===== 3. GENERIC =====
-        foreach (var e in worldEvents)
-        {
-            if (e.layer != EventLayer.Generic)
-                continue;
-
-            if (e.triggerType != EventTriggerType.OnTravelStep)
-                continue;
-
-            if (!CheckCondition(e))
-                continue;
-
-            if (Random.value <= e.triggerChance)
-                return e;
-        }
-
         return null;
     }
+    public void TriggerTimePass(float delta)
+    {
+        foreach (var e in eventGeneric)
+        {
+            if (e.triggerType != EventTriggerType.OnTimePass)
+                continue;
+
+            if (!CheckCondition(e))
+                continue;
+
+            if (Random.value <= e.triggerChance)
+            {
+                GameManager.Instance.ChangeMode(GameMode.InEvent);
+                GameManager.Instance.dialogueSystem.StartEventDialogue(e);
+                return;
+            }
+        }
+    }
+    public void TriggerNewDay()
+    {
+        var e = newDayEvent; // EventSO bạn assign sẵn
+
+        GameManager.Instance.ChangeMode(GameMode.InEvent);
+        GameManager.Instance.dialogueSystem.StartEventDialogue(e);
+    }
+    //Condition
     bool CheckCondition(EventSO e)
     {
         // REQUIRED

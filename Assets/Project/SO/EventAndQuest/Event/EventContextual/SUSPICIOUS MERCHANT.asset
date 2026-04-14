@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: SUSPICIOUS MERCHANT
+  m_EditorClassIdentifier: 
+  id: EV_CTX_FAKE_HELP
+  triggerType: 1
+  layer: 1
+  targetId: 
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 0.5
+  priority: 0
+  repeatable: 0
+  dialogues:
+  - text: A merchant waves you down.
+    npcId: 
+  - text: '''You look tired. Need help carrying that?'''
+    npcId: 
+  - text: His eyes linger on your cargo.
+    npcId: 
+  choices:
+  - {fileID: 11400000, guid: fcf2db44a5048f544943314e56483927, type: 2}
+  - {fileID: 11400000, guid: 92efe6a505854f24684868c76275951d, type: 2}
+  - {fileID: 11400000, guid: ad179c61c733b56418daf7987f767cdf, type: 2}

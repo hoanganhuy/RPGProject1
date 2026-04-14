@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameDataSystem : MonoBehaviour
 {
@@ -22,10 +22,23 @@ public class GameDataSystem : MonoBehaviour
     {
         hour += h;
 
+        bool newDay = false;
+
         while (hour >= 24f)
         {
             hour -= 24f;
             day++;
+            newDay = true;
+        }
+
+
+        // TIME PASS EVENT
+        EventRuntimeSystem.Instance.TriggerTimePass(h);
+
+        // NEW DAY EVENT
+        if (newDay)
+        {
+            EventRuntimeSystem.Instance.TriggerNewDay();
         }
 
         UpdateTimeFlags();

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: STRANGE SHRINE
+  m_EditorClassIdentifier: 
+  id: EV_CTX_STRANGE_SHRINE
+  triggerType: 1
+  layer: 2
+  targetId: 
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 0.3
+  priority: 0
+  repeatable: 0
+  dialogues:
+  - text: A quiet shrine stands alone.
+    npcId: 
+  - text: Fresh flowers. No one nearby.
+    npcId: 
+  - text: Something feels... watching.
+    npcId: 
+  choices:
+  - {fileID: 11400000, guid: eae38bbf7fa0adb4f83b262b2b6869b8, type: 2}
+  - {fileID: 11400000, guid: 4780431de9f1ac148b3c3b8a9e611794, type: 2}
+  - {fileID: 11400000, guid: 792e691b97e21f846a03aeaabcab740b, type: 2}

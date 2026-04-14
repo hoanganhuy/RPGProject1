@@ -17,19 +17,24 @@ public class WorldMapController : MonoBehaviour
 
     TravelManager travelManager;
     System.Action onTravelFinished;
-
+    float eventChanceMultiplier = 1f;
     public void Init(TravelManager tm, System.Action travelFinishedCallback)
     {
         travelManager = tm;
         onTravelFinished = travelFinishedCallback;
     }
-
     public void OpenMap(WorldMapGraph graph)
     {
         worldMapPanel.SetActive(true);
         DrawConnections(graph);
-    }
 
+        // FIX
+        var current = travelManager.GetCurrentLocation();
+        var node = FindNode(current);
+
+        if (node != null)
+            playerUI.position = node.transform.position;
+    }
     public void CloseMap()
     {
         worldMapPanel.SetActive(false);
@@ -46,48 +51,61 @@ public class WorldMapController : MonoBehaviour
         LocationData from = travelManager.GetCurrentLocation();
         LocationData to = travelManager.GetTargetLocation();
 
-        WorldMapNodeUI nodeA = FindNode(from);
-        WorldMapNodeUI nodeB = FindNode(to);
-
-        Vector3 startPos = nodeA.GetComponent<RectTransform>().position;
-        Vector3 endPos = nodeB.GetComponent<RectTransform>().position;
+       
+        var path = travelManager.GetCurrentPath();
 
         int steps = travelManager.GetTotalSteps();
 
-        for (int i = 1; i <= steps; i++)
+        foreach (var seg in path)
         {
-            //  nếu đang pause  chờ
-            if (travelManager.IsPaused())
+            var nodeA = FindNodeById(seg.fromId);
+            var nodeB = FindNodeById(seg.toId);
+
+            Vector3 startPos = nodeA.transform.position;
+            Vector3 endPos = nodeB.transform.position;
+
+            for (int i = 1; i <= seg.stepCount; i++)
             {
-                yield return null;
-                i--; // ❗ giữ nguyên step
-                continue;
-            }
+                if (travelManager.IsPaused())
+                {
+                    yield return null;
+                    i--;
+                    continue;
+                }
 
-            //  STEP LOGIC TRƯỚC
-            bool arrived = travelManager.StepTravel();
+                bool arrived = travelManager.StepTravel();
 
-            //  nếu event xảy ra  pause ngay
-            if (travelManager.IsPaused())
-            {
-                yield return null;
-                i--; // ❗ không mất step
-                continue;
-            }
+                // ===== MOVE TRƯỚC =====
+                float t = (float)i / steps;
+                Vector3 stepPos = Vector3.Lerp(startPos, endPos, t);
 
-            // ===== MOVE UI SAU =====
-            float t = (float)i / steps;
-            Vector3 stepPos = Vector3.Lerp(startPos, endPos, t);
+                yield return MovePlayer(stepPos);
 
-            yield return MovePlayer(stepPos);
+                // ===== CHECK EVENT SAU =====
+                var e = EventRuntimeSystem.Instance.TryGetTravelEvent(eventChanceMultiplier);
 
-            if (arrived)
-            {
-                EnableNodes();
-                ClearDots();
-                CloseMap();
-                onTravelFinished?.Invoke();
-                yield break;
+                if (e != null)
+                {
+                    eventChanceMultiplier *= 0.8f; // giảm 20%
+                    travelManager.PauseByEvent();
+
+                    GameManager.Instance.ChangeMode(GameMode.InEvent);
+                    GameManager.Instance.dialogueSystem.StartEventDialogue(e);
+
+                    // WAIT tới khi event xong
+                    yield return new WaitUntil(() => !travelManager.IsPaused());
+
+                    GameManager.Instance.ChangeMode(GameMode.Busy);
+                }
+                if (arrived)
+                {
+                    eventChanceMultiplier = 1f;
+                    EnableNodes();
+                    ClearDots();
+                    CloseMap();
+                    onTravelFinished?.Invoke();
+                    yield break;
+                }
             }
         }
     }
@@ -104,33 +122,62 @@ public class WorldMapController : MonoBehaviour
             yield return null;
         }
     }
-
     void DrawConnections(WorldMapGraph graph)
     {
         ClearDots();
 
         foreach (var conn in graph.connections)
         {
-            WorldMapNodeUI nodeA = FindNode(conn.A);
-            WorldMapNodeUI nodeB = FindNode(conn.B);
-
-            Vector3 startPos = nodeA.GetComponent<RectTransform>().position;
-            Vector3 endPos = nodeB.GetComponent<RectTransform>().position;
-
-            for (int i = 1; i <= conn.stepCount; i++)
+            // ===== CASE 1: có waypoint (segments) =====
+            if (conn.segments != null && conn.segments.Count > 0)
             {
-                float t = (float)i / (conn.stepCount + 1);
+                for (int s = 0; s < conn.segments.Count; s++)
+                {
+                    var seg = conn.segments[s];
 
-                Vector3 pos = Vector3.Lerp(startPos, endPos, t);
+                    var nodeA = FindNodeById(seg.fromId);
+                    var nodeB = FindNodeById(seg.toId);
 
-                GameObject dot = Instantiate(stepDotPrefab, dotHolder);
-                dot.transform.position = pos;
+                    if (nodeA == null || nodeB == null)
+                        continue;
 
-                spawnedDots.Add(dot);
+                    Vector3 startPos = nodeA.transform.position;
+                    Vector3 endPos = nodeB.transform.position;
+
+                    for (int i = 1; i <= seg.stepCount; i++)
+                    {
+                        float t = (float)i / (seg.stepCount + 1);
+                        Vector3 pos = Vector3.Lerp(startPos, endPos, t);
+
+                        var dot = Instantiate(stepDotPrefab, dotHolder);
+                        dot.transform.position = pos;
+
+                        spawnedDots.Add(dot);
+                    }
+                }
+            }
+            else
+            {
+                // ===== fallback cũ =====
+                var nodeA = FindNode(conn.A);
+                var nodeB = FindNode(conn.B);
+
+                Vector3 startPos = nodeA.transform.position;
+                Vector3 endPos = nodeB.transform.position;
+
+                for (int i = 1; i <= conn.stepCount; i++)
+                {
+                    float t = (float)i / (conn.stepCount + 1);
+                    Vector3 pos = Vector3.Lerp(startPos, endPos, t);
+
+                    var dot = Instantiate(stepDotPrefab, dotHolder);
+                    dot.transform.position = pos;
+
+                    spawnedDots.Add(dot);
+                }
             }
         }
     }
-
     void ClearDots()
     {
         foreach (var d in spawnedDots)
@@ -142,15 +189,46 @@ public class WorldMapController : MonoBehaviour
     void DisableNodes()
     {
         foreach (var n in nodes)
-            n.GetComponent<Button>().interactable = false;
+        {
+            var btn = n.GetComponent<Button>();
+
+            //  waypoint không bao giờ click được
+            if (n.location == null)
+            {
+                btn.interactable = false;
+                continue;
+            }
+
+            btn.interactable = false;
+        }
     }
 
     void EnableNodes()
     {
         foreach (var n in nodes)
-            n.GetComponent<Button>().interactable = true;
-    }
+        {
+            var btn = n.GetComponent<Button>();
 
+            if (n.location == null)
+            {
+                btn.interactable = false;
+                continue;
+            }
+
+            btn.interactable = true;
+        }
+    }
+    WorldMapNodeUI FindNodeById(string id)
+    {
+        foreach (var n in nodes)
+        {
+            if (n.pointId == id)
+                return n;
+        }
+
+        Debug.LogWarning("Node not found: " + id);
+        return null;
+    }
     WorldMapNodeUI FindNode(LocationData loc)
     {
         foreach (var n in nodes)
@@ -158,5 +236,9 @@ public class WorldMapController : MonoBehaviour
                 return n;
 
         return null;
+    }
+    public float GetEventChanceMultiplier()
+    {
+        return eventChanceMultiplier;
     }
 }

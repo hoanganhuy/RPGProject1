@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: ROADSIDE ARGUMENT
+  m_EditorClassIdentifier: 
+  id: EV_GEN_ARGUMENT
+  triggerType: 1
+  layer: 2
+  targetId: 
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 0.45
+  priority: 0
+  repeatable: 0
+  dialogues:
+  - text: Two travelers argue loudly by the road.
+    npcId: 
+  - text: '''He cheated me!'''
+    npcId: 
+  - text: They notice you approaching.
+    npcId: 
+  choices:
+  - {fileID: 11400000, guid: 0b37233075541b2498c0b9933c55eddf, type: 2}
+  - {fileID: 11400000, guid: 8155cd437daa5cc4e8596ad6ae4a8ee3, type: 2}
+  - {fileID: 11400000, guid: 5d0a316c603822e4c8a8e873dc40081a, type: 2}

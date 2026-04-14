@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: SICK CHILD
+  m_EditorClassIdentifier: 
+  id: EV_CTX_SICK_CHILD
+  triggerType: 1
+  layer: 2
+  targetId: 
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 0
+  dialogues:
+  - text: A mother clutches a feverish child.
+    npcId: 
+  - text: '''Please... the temple...'''
+    npcId: 
+  - text: Time is short.
+    npcId: 
+  choices:
+  - {fileID: 11400000, guid: 81b3af45748b72149909ae69b1ef70fe, type: 2}
+  - {fileID: 11400000, guid: 7d505afa921db4243a9c5f37fd095cda, type: 2}
+  - {fileID: 11400000, guid: 938ea3e02c52cc34282c79d92a2cc996, type: 2}

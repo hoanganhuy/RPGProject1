@@ -15,25 +15,78 @@ MonoBehaviour:
   connections:
   - A: {fileID: 11400000, guid: d8f2bfcb6e1ae58419aa3ee51b416550, type: 2}
     B: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
-    stepCount: 3
-  - A: {fileID: 11400000, guid: cefeaf40243c63f41942d804bfa4a2eb, type: 2}
-    B: {fileID: 11400000, guid: d8f2bfcb6e1ae58419aa3ee51b416550, type: 2}
-    stepCount: 4
+    stepCount: 0
+    segments:
+    - fromId: guild_hall
+      toId: smith
+      stepCount: 3
+  - A: {fileID: 11400000, guid: d8f2bfcb6e1ae58419aa3ee51b416550, type: 2}
+    B: {fileID: 11400000, guid: cefeaf40243c63f41942d804bfa4a2eb, type: 2}
+    stepCount: 0
+    segments:
+    - fromId: guild_hall
+      toId: office
+      stepCount: 4
   - A: {fileID: 11400000, guid: cefeaf40243c63f41942d804bfa4a2eb, type: 2}
     B: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
-    stepCount: 4
+    stepCount: 0
+    segments:
+    - fromId: office
+      toId: smith
+      stepCount: 4
   - A: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
     B: {fileID: 11400000, guid: e5f11060828026942ad6db5b27add07b, type: 2}
-    stepCount: 20
+    stepCount: 0
+    segments:
+    - fromId: smith
+      toId: forest
+      stepCount: 16
+    - fromId: forest
+      toId: hermit
+      stepCount: 4
   - A: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
     B: {fileID: 11400000, guid: 2db54d024b257f74da4c00555038eb0e, type: 2}
     stepCount: 16
+    segments:
+    - fromId: smith
+      toId: dock
+      stepCount: 16
   - A: {fileID: 11400000, guid: ef2ed9526a5eeab4c9f5b1465a381766, type: 2}
     B: {fileID: 11400000, guid: bd988734578b3b9428c9648a732c4daf, type: 2}
-    stepCount: 12
+    stepCount: 0
+    segments:
+    - fromId: smith
+      toId: bridge
+      stepCount: 5
+    - fromId: bridge
+      toId: market
+      stepCount: 7
   - A: {fileID: 11400000, guid: bd988734578b3b9428c9648a732c4daf, type: 2}
     B: {fileID: 11400000, guid: d5bb534f1a382594cba351fcb29635c6, type: 2}
     stepCount: 3
-  - A: {fileID: 11400000, guid: d8f2bfcb6e1ae58419aa3ee51b416550, type: 2}
+    segments:
+    - fromId: market
+      toId: temple
+      stepCount: 0
+  - A: {fileID: 11400000, guid: bd988734578b3b9428c9648a732c4daf, type: 2}
     B: {fileID: 11400000, guid: dd058390efb9582499c14c6bdfc192b7, type: 2}
-    stepCount: 30
+    stepCount: 0
+    segments:
+    - fromId: market
+      toId: road
+      stepCount: 5
+    - fromId: road
+      toId: gate
+      stepCount: 5
+    - fromId: gate
+      toId: way1
+      stepCount: 5
+    - fromId: way1
+      toId: way2
+      stepCount: 6
+    - fromId: way2
+      toId: way3
+      stepCount: 6
+    - fromId: way3
+      toId: guard
+      stepCount: 6

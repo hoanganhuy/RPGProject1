@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: STREET PERFORMANCE
+  m_EditorClassIdentifier: 
+  id: EV_GEN_PERFORMANCE
+  triggerType: 2
+  layer: 2
+  targetId: town
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags: []
+  forbiddenFlags: []
+  triggerChance: 0.7
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: A street performer gathers a crowd.
+    npcId: 
+  - text: Music fills the air.
+    npcId: 
+  - text: People toss coins.
+    npcId: 
+  choices:
+  - {fileID: 11400000, guid: 6d46a6bd6b769a24fa19a49bb2e65481, type: 2}
+  - {fileID: 11400000, guid: aa582401db2b04d4fb44e86ad0209b07, type: 2}
+  - {fileID: 11400000, guid: c83faa37922c2264199cdebbeba93db0, type: 2}

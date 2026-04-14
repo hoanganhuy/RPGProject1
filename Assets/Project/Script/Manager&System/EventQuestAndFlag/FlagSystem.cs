@@ -20,7 +20,18 @@ public class FlagSystem : MonoBehaviour
         if (flags.Add(id))
             Debug.Log("[Flag] Set: " + id);
     }
+    public List<string> GetAllFlags()
+    {
+        return new List<string>(flags);
+    }
 
+    public void LoadFlags(List<string> loadedFlags)
+    {
+        flags.Clear();
+
+        foreach (var f in loadedFlags)
+            flags.Add(f);
+    }
     // ===== CLEAR =====
     public void ClearFlag(string id)
     {

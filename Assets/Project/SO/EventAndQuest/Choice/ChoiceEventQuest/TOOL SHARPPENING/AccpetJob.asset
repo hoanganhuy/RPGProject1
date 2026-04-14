@@ -17,6 +17,8 @@ MonoBehaviour:
   reputationDelta: 0
   timeDelta: 0
   flagsSet:
-  - quest_tool_active
+  - quest_sharpening_active
+  - has_dull_swords
+  - has_goods
   flagsCleared: []
   advanceStep: 1

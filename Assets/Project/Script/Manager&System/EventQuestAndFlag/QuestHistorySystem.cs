@@ -32,4 +32,19 @@ public class QuestHistorySystem : MonoBehaviour
     {
         return expired.Contains(id);
     }
+    public List<string> GetCompleted()
+    {
+        return new List<string>(completed);
+    }
+
+    public List<string> GetExpired()
+    {
+        return new List<string>(expired);
+    }
+
+    public void LoadData(List<string> completedList, List<string> expiredList)
+    {
+        completed = new HashSet<string>(completedList);
+        expired = new HashSet<string>(expiredList);
+    }
 }

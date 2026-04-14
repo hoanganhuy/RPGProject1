@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: BANDIT AMBUSH
+  m_EditorClassIdentifier: 
+  id: EV_CTX_BANDIT_AMBUSH
+  triggerType: 1
+  layer: 1
+  targetId: 
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags:
+  - has_goods
+  forbiddenFlags:
+  - paid_protection
+  triggerChance: 0.3
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: Shadows move along the roadside.
+    npcId: old_man
+  - text: "Too late\u2014you are surrounded."
+    npcId: old_man
+  - text: Weapons drawn. No words this time.
+    npcId: old_man
+  choices:
+  - {fileID: 11400000, guid: 626f7b0e7405cb14ea2e7ae8806cd5f9, type: 2}
+  - {fileID: 11400000, guid: b59391f8ad4120142a994b9c0553a26e, type: 2}
+  - {fileID: 11400000, guid: 9914febcc40130c409ded9077aebeb21, type: 2}

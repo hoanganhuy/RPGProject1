@@ -16,12 +16,12 @@ MonoBehaviour:
   title: Smithy Delivery
   description: Deliver iron fittings from the market to the smithy
   startStep: 0
-  endStep: 3
+  endStep: 4
   events:
-  - {fileID: 11400000, guid: ec048fe7a4d964a4090dd849df8a7b0c, type: 2}
-  - {fileID: 11400000, guid: 6c3cac45121ab0d43af2dd7c8d8bfdfd, type: 2}
-  - {fileID: 11400000, guid: a65e1668372104d4ab82c227f7d61c77, type: 2}
+  - {fileID: 11400000, guid: 05d6581ebbb08fd4b996119547125244, type: 2}
+  - {fileID: 11400000, guid: 253e212a3453ec74fa0243d0032ca7fc, type: 2}
   - {fileID: 11400000, guid: 0fa714398f6e9dc4aa94841098424a1f, type: 2}
+  - {fileID: 11400000, guid: 91b484aff1d1fa24aa77c7d7a5216429, type: 2}
   coinReward: 10
   reputationReward: 2
   repeatable: 0

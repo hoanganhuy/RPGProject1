@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: GOODS SPOIL
+  m_EditorClassIdentifier: 
+  id: EV_CTX_GOODS_SPOIL
+  triggerType: 1
+  layer: 1
+  targetId: 
+  requiredStep: -1
+  nextStep: -1
+  requiredFlags:
+  - goods_food
+  - has_good
+  forbiddenFlags:
+  - has preservatives
+  triggerChance: 0.35
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: Something smells wrong.
+    npcId: 
+  - text: You check your cargo.
+    npcId: 
+  - text: Some goods are ruined.
+    npcId: 
+  choices:
+  - {fileID: 11400000, guid: 9820cab91461b334eb5a50520c7f7308, type: 2}
+  - {fileID: 11400000, guid: ced389cbd12031d4eb26a1fbe0688c57, type: 2}

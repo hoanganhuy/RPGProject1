@@ -18,9 +18,9 @@ MonoBehaviour:
   startStep: 0
   endStep: 3
   events:
-  - {fileID: 11400000, guid: 10adce18ce0382f41bf34534d719c46d, type: 2}
-  - {fileID: 11400000, guid: 85add124a61d64741a17e192ddb9755a, type: 2}
-  - {fileID: 11400000, guid: 285687be2f59cca419d2a26aaa1dd965, type: 2}
+  - {fileID: 11400000, guid: 42f8674c4feba4f4fa3116877e82efa9, type: 2}
+  - {fileID: 11400000, guid: b98e9d574c3cf3949a998bdb3b8a192d, type: 2}
+  - {fileID: 11400000, guid: 18736ca325d00f34b9314758c3e90946, type: 2}
   coinReward: 8
   reputationReward: 2
   repeatable: 0

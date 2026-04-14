@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5324c5b310b5f354f98ce7e203a48a54, type: 3}
+  m_Name: MeetHalen
+  m_EditorClassIdentifier: 
+  id: EV_Q.HEIRPATH_WARNING
+  triggerType: 0
+  layer: 0
+  targetId: halen
+  requiredStep: 5
+  nextStep: 6
+  requiredFlags:
+  - heir_path_active
+  - know_name
+  forbiddenFlags: []
+  triggerChance: 1
+  priority: 0
+  repeatable: 1
+  dialogues:
+  - text: A person hold you back.
+    npcId: 
+  - text: Come with me brother.
+    npcId: halen
+  - text: You go with halen to the tavern.
+    npcId: 
+  - text: I see you holding that ring and locket while walking around. That is dangerous.
+    npcId: halen
+  - text: You see, Sir Vex tell me about you and tell me to investigate about the
+      Arden death.
+    npcId: halen
+  - text: And from what i discovered, Vance, that wealthy pig who is living in the
+      Arden estage is the person who behind that night.
+    npcId: halen
+  - text: Since you holding that stuff, i guess you know about your past. But the
+      dangerous is not just Vance himself but also the guild also. So keep your mouth
+      shut. You are too weak right now.
+    npcId: halen
+  choices:
+  - {fileID: 11400000, guid: 9a79843ddf7ec494589482cd0b6ca7a8, type: 2}

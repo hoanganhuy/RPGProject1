@@ -10,12 +10,19 @@ public class JobBoardSystem : MonoBehaviour
     //public List<QuestSO> availableQuests;
     public List<QuestSO> questPool;   // database quest
     List<QuestSO> todayBoard = new List<QuestSO>();
-    void OnEnable()
-    {        
-        GenerateBoard();
-        SpawnJobs();
-    }
+    public bool isLoadedFromSave = false;
 
+    void OnEnable()
+    {
+        if (!isLoadedFromSave)
+        {
+            GenerateBoard();
+        }
+
+        SpawnJobs();
+
+        isLoadedFromSave = false; // reset
+    }
     public void SpawnJobs()
     {
         foreach (Transform c in contentRoot)
@@ -68,5 +75,30 @@ public class JobBoardSystem : MonoBehaviour
         todayBoard.Remove(quest);
 
         SpawnJobs();
+    }
+    public void LoadBoard(List<string> ids)
+    {
+        todayBoard.Clear();
+
+        foreach (var id in ids)
+        {
+            var quest = GameDatabase.Instance.GetQuest(id);
+
+            if (quest != null)
+                todayBoard.Add(quest);
+        }
+
+        SpawnJobs();
+    }
+    public List<string> GetCurrentBoardIds()
+    {
+        List<string> ids = new List<string>();
+
+        foreach (var q in todayBoard)
+        {
+            ids.Add(q.id);
+        }
+
+        return ids;
     }
 }

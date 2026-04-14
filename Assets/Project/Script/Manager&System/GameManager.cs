@@ -61,11 +61,11 @@ public class GameManager : MonoBehaviour
         if (travelManager.IsTravelling())
             return;
         ChangeMode(GameMode.Busy);
-        if (!travelManager.CanTravelTo(target))
-        {
-            Debug.Log("Location not connected!");
-            return;
-        }
+        //if (!travelManager.CanTravelTo(target))
+        //{
+        //    Debug.Log("Location not connected!");
+        //    return;
+        //}
 
         travelManager.StartTravel(target);
 
@@ -77,5 +77,36 @@ public class GameManager : MonoBehaviour
         ChangeMode(GameMode.Exploration);
         currentLocation = travelManager.GetCurrentLocation();
         locationSystem.EnterLocation(currentLocation,this);
+
+        //Trigger event enter locaition 
+        var e = EventRuntimeSystem.Instance.TryGetEventLocation();
+        if (e != null)
+        {
+            ChangeMode(GameMode.InEvent);
+            dialogueSystem.StartEventDialogue(e);
+        }
+    }
+    public LocationData GetCurrentLocation()
+    {
+        return currentLocation;
+    }
+
+    public void SetCurrentLocation(LocationData loc)
+    {
+        currentLocation = loc;
+        locationSystem.EnterLocation(currentLocation, this);
+    }
+
+    public TravelManager GetTravelManager()
+    {
+        return travelManager;
+    }
+    public void OnClickSaveSlot0()
+    {
+        SaveSystem.Instance.SaveGame(0);
+    }
+    public void OnClickLoadSlot0()
+    {
+        SaveSystem.Instance.LoadGame(0);
     }
 }
